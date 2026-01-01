@@ -264,7 +264,7 @@
   border-radius: 10px;
   padding: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
 }
@@ -297,11 +297,17 @@
 
 .confirmed-item {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   align-items: center;
   margin: 15px 0 10px 0;
   padding: 0px 0 15px 0;
   border-bottom: 1px solid var(--color-rose-400);
+}
+
+.img-and-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .thumbnail {
@@ -364,6 +370,12 @@
   color: var(--color-rose-900);
 }
 
+@media only screen and (min-width: 450px) {
+  .confirmed-item-info .name {
+    max-width: 100%;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   .app {
     display: flex;
@@ -390,5 +402,9 @@
 
   .overlay {
     align-items: center;
+  }
+
+  .confirmed-item-info .name {
+    max-width: 100%;
   }
 }

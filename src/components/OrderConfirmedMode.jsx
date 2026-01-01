@@ -20,16 +20,18 @@ function OrderConfirmedMode({ cart, onStartNewOrder }) {
           <div className="background">
             {cart.map((item) => (
               <div key={item.name} className="confirmed-item">
-                <img
-                  src={item.image.thumbnail}
-                  alt={item.name}
-                  className="thumbnail"
-                />
-                <div className="confirmed-item-info">
-                  <p className="name">{item.name}</p>
-                  <div className="confirmed-item-nums">
-                    <p className="qty">{item.quantity}x</p>
-                    <p className="price">@{item.price.toFixed(2)}</p>
+                <div className="img-and-info">
+                  <img
+                    src={item.image.thumbnail}
+                    alt={item.name}
+                    className="thumbnail"
+                  />
+                  <div className="confirmed-item-info">
+                    <p className="name">{item.name}</p>
+                    <div className="confirmed-item-nums">
+                      <p className="qty">{item.quantity}x</p>
+                      <p className="price">@{item.price.toFixed(2)}</p>
+                    </div>
                   </div>
                 </div>
                 <p className="modal-subtotal">
