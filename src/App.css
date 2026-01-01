@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+:root {
+  --font-family: "Red Hat Text", sans-serif;
+
+  --color-red: hsl(14, 86%, 42%);
+  --color-green: hsl(159, 69%, 38%);
+
+  --color-rose-50: hsl(20, 50%, 98%);
+  --color-rose-100: hsl(13, 31%, 94%);
+  --color-rose-300: hsl(14, 25%, 72%);
+  --color-rose-400: hsl(7, 20%, 60%);
+  --color-rose-500: hsl(12, 20%, 44%);
+  --color-rose-900: hsl(14, 65%, 9%);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+/*************** FOOD CARD STYLES ***************/
+
+.food-type {
+  color: var(--color-rose-900);
+}
+
+.food-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 2rem 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.food-cards h1 {
+  grid-column: 1 / -1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.food-card-img.selected {
+  border: 2px solid var(--color-red);
+}
+
+.item-details p {
+  color: var(--color-rose-500);
+}
+
+.item-details h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-rose-900);
+}
+
+.item-details span {
+  color: var(--color-red);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/*************** BUTTON STYLES ***************/
+
+.add-to-cart {
+  width: 70%;
+  align-self: center;
+  font-family: var(--font-family);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--color-rose-50);
+  color: var(--color-rose-900);
+  border: 1px solid var(--color-rose-500);
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: -1.5rem;
+}
+
+.qty-controls {
+  align-self: center;
+  font-family: var(--font-family);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: var(--color-red);
+  color: var(--color-rose-50);
+  border: 1px solid var(--color-rose-500);
+  padding: 6px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: -1.5rem;
+}
+
+.decrease-btn,
+.increase-btn {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: var(--color-red);
+  border: 2px solid var(--color-rose-50);
+  border-radius: 50%;
+  padding: 3px 9px;
+  color: var(--color-rose-50);
+}
+
+.increase-btn {
+  padding: 4px 9px;
+}
+
+/*************** CART STYLES ***************/
+
+.cart {
+  display: grid;
+  gap: 20px;
+  background-color: var(--color-rose-50);
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.cart img {
+  justify-self: center;
+}
+
+.cart h2 {
+  color: var(--color-red);
+}
+
+.cart p {
+  justify-self: center;
+  color: var(--color-rose-500);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsl(9, 8%, 83%);
+  margin-bottom: 15px;
+}
+
+.cart-item .cart-item-info {
+  display: grid;
+  gap: 5px;
+}
+
+.cart-item .cart-item-name {
+  justify-self: start;
+  color: var(--color-rose-900);
+  font-size: 0.9rem;
+}
+
+.item-amount {
+  display: flex;
+  gap: 15px;
+  justify-self: start;
+  padding: 0 0 15px 0;
+}
+
+.item-amount .cart-item-qty {
+  color: var(--color-red);
+  font-weight: 500;
+}
+
+.item-amount .cart-item-price {
+  font-weight: 400;
+}
+
+.cart-item button {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--color-rose-400);
+  color: var(--color-rose-400);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 1px 5px;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: var(--color-rose-900);
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.climate-action {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(13, 31%, 94%);
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+
+.climate-action p {
+  color: var(--color-rose-900);
+  font-weight: 400;
+}
+
+.climate-action p span {
+  color: var(--color-rose-900);
+  font-weight: 700;
+}
+
+.confirm-order,
+.start-new-order {
+  width: 100%;
+  background-color: var(--color-red);
+  color: var(--color-rose-50);
+  border: none;
+  padding: 15px 0;
+  border-radius: 50px;
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/*************** ORDER CONFIRMED MODE STYLES ***************/
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.mode {
+  background-color: var(--color-rose-50);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  color: var(--color-rose-900);
+}
+
+.header p {
+  color: var(--color-rose-500);
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.confirmed-items {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 15px;
+}
+
+.confirmed-items .background {
+  background-color: var(--color-rose-100);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.confirmed-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 15px 0 10px 0;
+  padding: 0px 0 15px 0;
+  border-bottom: 1px solid var(--color-rose-400);
+}
+
+.thumbnail {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+
+.confirmed-item-info {
+  display: grid;
+  gap: 15px;
+}
+
+.confirmed-item-info .name {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.confirmed-item-nums {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.confirmed-item-nums .qty {
+  color: var(--color-red);
+  font-weight: 600;
+}
+
+.confirmed-item-nums .price {
+  color: var(--color-rose-400);
+}
+
+.confirmed-item .modal-subtotal {
+  font-weight: 600;
+  color: var(--color-rose-900);
+}
+
+.mode-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.mode-total .text {
+  color: var(--color-rose-500);
+  font-weight: 500;
+}
+
+.mode-total .num {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-rose-900);
+}
+
+@media only screen and (min-width: 1200px) {
+  .app {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .food-cards {
+    max-width: none;
+    width: calc(100% - 375px);
+  }
+
+  .cart {
+    position: sticky;
+    top: 60px;
+    align-self: flex-start;
+    width: 350px;
+  }
+
+  .climate-action p {
+    font-size: 0.9rem;
+  }
+
+  .overlay {
+    align-items: center;
+  }
+}
