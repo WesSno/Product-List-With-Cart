@@ -26,6 +26,8 @@
 /*************** FOOD CARD STYLES ***************/
 
 .food-type {
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--color-rose-900);
 }
 
@@ -38,7 +40,7 @@
   max-width: 1200px;
 }
 
-.food-cards h1 {
+.food-cards .food-type {
   grid-column: 1 / -1;
 }
 
