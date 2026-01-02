@@ -77,7 +77,9 @@ function App() {
   return (
     <div className="app">
       <div className="food-cards">
-        <header className="food-type">Desserts</header>
+        <header>
+          <h1 className="food-type">Desserts</h1>
+        </header>
         {desserts}
       </div>
       <Cart
