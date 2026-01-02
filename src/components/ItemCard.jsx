@@ -1,3 +1,5 @@
+import React from "react";
+
 function ProductCard(props) {
   const { items, cart, addToCart, increaseQty, decreaseQty } = props;
 
@@ -53,4 +55,4 @@ function ProductCard(props) {
   );
 }
 
-export default ProductCard;
+export default React.memo(ProductCard);

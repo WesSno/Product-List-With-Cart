@@ -1,11 +1,16 @@
+import { useMemo } from "react";
+
 function Cart(props) {
   const { cart, removeFromCart, onConfirm } = props;
 
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = useMemo(
+    () => cart.reduce((total, item) => total + item.quantity, 0),
+    [cart]
+  );
 
-  const orderTotal = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
+  const orderTotal = useMemo(
+    () => cart.reduce((total, item) => total + item.price * item.quantity, 0),
+    [cart]
   );
 
   return (

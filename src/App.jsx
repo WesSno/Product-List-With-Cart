@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import data from "./components/data.json";
 import ProductCard from "./components/ItemCard";
 import Cart from "./components/Cart";
@@ -6,23 +6,36 @@ import "./App.css";
 import OrderConfirmedMode from "./components/OrderConfirmedMode";
 
 function App() {
-  const [items, setItems] = useState(data);
+  const items = data;
   const [cart, setCart] = useState([]);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
 
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, { ...item, quantity: 1 }]);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find(
+        (cartItem) => cartItem.name === item.name
+      );
+      if (existingItem) {
+        return prevCart.map((cartItem) =>
+          cartItem.name === item.name
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
   };
 
-  const increaseQty = (itemName) => {
+  const increaseQty = useCallback((itemName) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.name === itemName ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
-  };
+  }, []);
 
-  const decreaseQty = (itemName) => {
+  const decreaseQty = useCallback((itemName) => {
     setCart((prevCart) =>
       prevCart
         .map((item) =>
@@ -32,7 +45,7 @@ function App() {
         )
         .filter((item) => item.quantity > 0)
     );
-  };
+  }, []);
 
   const removeFromCart = (itemName) => {
     setCart((prevCart) => prevCart.filter((item) => item.name !== itemName));
@@ -55,7 +68,6 @@ function App() {
       key={item.name}
       items={item}
       cart={cart}
-      setCart={setCart}
       addToCart={addToCart}
       increaseQty={increaseQty}
       decreaseQty={decreaseQty}
